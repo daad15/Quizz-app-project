@@ -62,6 +62,8 @@ class QuizInterface:
                                               fg="White", bg=THEME_COLOR, highlightthickness=0)
             q_text = self.quiz.next_question()
             self.canvas.itemconfig(self.question_text, text=q_text, fill=THEME_COLOR)
+            self.true_button.config(state="normal")
+            self.false_button.config(state="normal")
         else:
             self.canvas.itemconfig(self.question_text, text="You've reached the end of the quiz!", fill=THEME_COLOR)
             self.true_button.config(state="disabled")
@@ -76,6 +78,8 @@ class QuizInterface:
         self.give_feedback(is_right)
 
     def give_feedback(self, is_right):
+        self.true_button.config(state="disabled")
+        self.false_button.config(state="disabled")
         if is_right:
             self.canvas.config(bg=RIGHT_ANS_COLOR)
             self.canvas.itemconfig(self.question_text, fill="white")
