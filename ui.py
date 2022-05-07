@@ -1,7 +1,7 @@
 from tkinter import *
 from quiz_brain import QuizBrain
 
-THEME_COLOR = "#375362"
+THEME_COLOR = "#13229D"
 RIGHT_ANS_COLOR = "#27ae60"
 WRONG_ANS_COLOR = "#ff6b6b"
 FONT = ("Arial", 20, "italic")
@@ -15,7 +15,7 @@ class QuizInterface:
 
         # Window
         self.window = Tk()
-        self.window.title("Quizzler")
+        self.window.title("Quiz Me")
         self.window.config(bg=THEME_COLOR, padx=20, pady=20)
         self.window.resizable(width=False, height=False)
 
@@ -34,10 +34,16 @@ class QuizInterface:
 
         # kadi
         self.canvas1 = Canvas()
-        self.canvas1.config(width=340, height=510, bg="white")
+        self.canvas1.config(width=340, height=510, bg="black")
         img = PhotoImage(file="images/background.png")
         self.canvas1.create_image(1,1, anchor=NW, image=img)
         self.canvas1.place(x=-20, y=-20)
+        start_button_img = PhotoImage(file="images/start.png")
+        self.start_button = Button(image=start_button_img, highlightthickness=0, command=self.start_quiz)
+        self.start_button.place(x=85, y=300)
+
+
+
 
 
         self.canvas = Canvas()
@@ -63,10 +69,20 @@ class QuizInterface:
 
         #kadi
         Misc.lift(self.canvas1)
+        Misc.lift(self.start_button)
+
+
 
         self.get_next_question()
 
         self.window.mainloop()
+
+    def start_quiz(self):
+      self.canvas1.place_forget()
+      self.start_button.place_forget()
+
+
+
 
     def get_next_question(self):
         self.canvas.config(bg="white")
