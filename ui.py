@@ -36,10 +36,10 @@ class QuizInterface:
 
         # start
         self.canvas1 = Canvas()
-        self.canvas1.config(width=340, height=510,  highlightthickness=0)
+        self.canvas1.config(width=340, height=510, bg="black")
         img = PhotoImage(file="images/background.png")
-        self.canvas1.create_image(0,0, anchor=NW, image=img)
-        self.canvas1.place(x=-20, y=-15)
+        self.canvas1.create_image(1,1, anchor=NW, image=img)
+        self.canvas1.place(x=-20, y=-20)
         start_button_img = PhotoImage(file="images/start.png")
         self.start_button = Button(image=start_button_img, highlightthickness=0, command=self.start_quiz)
         self.start_button.place(x=85, y=300)
@@ -91,7 +91,8 @@ class QuizInterface:
         else:
             endImg = PhotoImage(file="images/end.png")
             self.canvas.create_image(0, 0, anchor=NW, image=endImg)
-            self.canvas.config(highlightthickness=0)
+            pygame.mixer.music.load("images/Ending-sound-effect.mp3")
+            pygame.mixer.music.play(loops=1)
             self.true_button.config(state="disabled")
             self.false_button.config(state="disabled")
             self.window.mainloop()
