@@ -74,9 +74,10 @@ class QuizInterface:
         self.window.mainloop()
 
     def start_quiz(self):
+      pygame.mixer.music.load("sounds/click sound effect.mp3")
+      pygame.mixer.music.play(loops=1)
       self.canvas1.place_forget()
       self.start_button.place_forget()
-
 
     def get_next_question(self):
         self.canvas.config(bg="white")
