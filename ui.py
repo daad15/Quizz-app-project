@@ -76,8 +76,6 @@ class QuizInterface:
     def start_quiz(self):
       self.canvas1.place_forget()
       self.start_button.place_forget()
-      pygame.mixer.music.load("images/clock-ticking-4.wav")
-      pygame.mixer.music.play(loops=0)
 
 
     def get_next_question(self):
@@ -113,6 +111,8 @@ class QuizInterface:
             self.canvas.itemconfig(self.question_text, fill="white")
             self.score += 1
             self.score_label.config(text=f"Score: {self.score}")
+            pygame.mixer.music.load("images/Ding-sound-effect.mp3")
+            pygame.mixer.music.play(loops=1)
         else:
             self.canvas.config(bg=WRONG_ANS_COLOR)
             self.canvas.itemconfig(self.question_text, fill="white")
