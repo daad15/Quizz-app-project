@@ -1,11 +1,13 @@
 from tkinter import *
 from quiz_brain import QuizBrain
+import pygame
 
 THEME_COLOR = "#13229D"
 RIGHT_ANS_COLOR = "#27ae60"
 WRONG_ANS_COLOR = "#ff6b6b"
 FONT = ("font/Poppins-Bold", 15, "bold")
 
+pygame.mixer.init()
 
 class QuizInterface:
     def __init__(self, quiz_brain: QuizBrain):
@@ -74,6 +76,8 @@ class QuizInterface:
     def start_quiz(self):
       self.canvas1.place_forget()
       self.start_button.place_forget()
+      pygame.mixer.music.load("images/clock-ticking-4.wav")
+      pygame.mixer.music.play(loops=0)
 
 
     def get_next_question(self):
