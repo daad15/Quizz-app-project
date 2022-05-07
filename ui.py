@@ -4,7 +4,7 @@ from quiz_brain import QuizBrain
 THEME_COLOR = "#13229D"
 RIGHT_ANS_COLOR = "#27ae60"
 WRONG_ANS_COLOR = "#ff6b6b"
-FONT = ("Arial", 20, "italic")
+FONT = ("Poppins", 15, "bold")
 
 
 class QuizInterface:
@@ -32,7 +32,7 @@ class QuizInterface:
 
         # Canvas
 
-        # kadi
+        # start
         self.canvas1 = Canvas()
         self.canvas1.config(width=340, height=510, bg="black")
         img = PhotoImage(file="images/background.png")
@@ -42,10 +42,7 @@ class QuizInterface:
         self.start_button = Button(image=start_button_img, highlightthickness=0, command=self.start_quiz)
         self.start_button.place(x=85, y=300)
 
-
-
-
-
+        # questions
         self.canvas = Canvas()
         self.canvas.config(width=300, height=250, bg="white")
         self.question_text = self.canvas.create_text(
@@ -67,21 +64,16 @@ class QuizInterface:
         self.false_button = Button(image=false_button_img, highlightthickness=0, command=self.pressed_false)
         self.false_button.grid(row=2, column=1)
 
-        #kadi
+        # order
         Misc.lift(self.canvas1)
         Misc.lift(self.start_button)
 
-
-
         self.get_next_question()
-
         self.window.mainloop()
 
     def start_quiz(self):
       self.canvas1.place_forget()
       self.start_button.place_forget()
-
-
 
 
     def get_next_question(self):
@@ -95,9 +87,11 @@ class QuizInterface:
             self.true_button.config(state="normal")
             self.false_button.config(state="normal")
         else:
-            self.canvas.itemconfig(self.question_text, text="You've reached the end of the quiz!", fill=THEME_COLOR)
+            endImg = PhotoImage(file="images/end.png")
+            self.canvas.create_image(0, 0, anchor=NW, image=endImg)
             self.true_button.config(state="disabled")
             self.false_button.config(state="disabled")
+            self.window.mainloop()
 
     def pressed_true(self):
         is_right = self.quiz.check_answer(user_answer="True")
