@@ -112,11 +112,11 @@ class QuizInterface:
             self.canvas.itemconfig(self.question_text, fill="white")
             self.score += 1
             self.score_label.config(text=f"Score: {self.score}")
-            pygame.mixer.music.load("images/Ding-sound-effect.mp3")
+            pygame.mixer.music.load("sounds/Ding-sound-effect.mp3")
             pygame.mixer.music.play(loops=1)
         else:
             self.canvas.config(bg=WRONG_ANS_COLOR)
             self.canvas.itemconfig(self.question_text, fill="white")
-            pygame.mixer.music.load("images/Wrong Clakson Sound Effect.mp3")
+            pygame.mixer.music.load("sounds/wrong_buzzer_sound.mp3")
             pygame.mixer.music.play(loops=1)
         self.window.after(1000, self.get_next_question)
