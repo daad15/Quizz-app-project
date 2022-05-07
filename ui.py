@@ -24,7 +24,7 @@ class QuizInterface:
         # Question number label
         self.question_number = self.quiz.question_number
         self.question_number_label = Label(text=f"Question: {self.question_number}/{len(self.quiz.question_list)}",
-                                           fg="White", bg=THEME_COLOR, highlightthickness=0,font=('Calibri',15,"bold|italic"))
+                                           fg="White", bg=THEME_COLOR, highlightthickness=0,font=('Calibri',15,"bold"))
         self.question_number_label.grid(row=0, column=0)
 
         # Score label
