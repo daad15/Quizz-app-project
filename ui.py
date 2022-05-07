@@ -91,6 +91,8 @@ class QuizInterface:
         else:
             endImg = PhotoImage(file="images/end.png")
             self.canvas.create_image(0, 0, anchor=NW, image=endImg)
+            pygame.mixer.music.load("images/Ending-sound-effect.mp3")
+            pygame.mixer.music.play(loops=1)
             self.true_button.config(state="disabled")
             self.false_button.config(state="disabled")
             self.window.mainloop()
