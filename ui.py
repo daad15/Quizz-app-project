@@ -36,10 +36,10 @@ class QuizInterface:
 
         # start
         self.canvas1 = Canvas()
-        self.canvas1.config(width=340, height=510, bg="black")
+        self.canvas1.config(width=340, height=510,  highlightthickness=0)
         img = PhotoImage(file="images/background.png")
-        self.canvas1.create_image(1,1, anchor=NW, image=img)
-        self.canvas1.place(x=-20, y=-20)
+        self.canvas1.create_image(0,0, anchor=NW, image=img)
+        self.canvas1.place(x=-20, y=-15)
         start_button_img = PhotoImage(file="images/start.png")
         self.start_button = Button(image=start_button_img, highlightthickness=0, command=self.start_quiz)
         self.start_button.place(x=85, y=300)
