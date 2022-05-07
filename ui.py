@@ -11,6 +11,8 @@ class QuizInterface:
     def __init__(self, quiz_brain: QuizBrain):
         self.quiz = quiz_brain
 
+
+
         # Window
         self.window = Tk()
         self.window.title("Quizzler")
@@ -29,6 +31,15 @@ class QuizInterface:
         self.score_label.grid(row=0, column=1)
 
         # Canvas
+
+        # kadi
+        self.canvas1 = Canvas()
+        self.canvas1.config(width=340, height=510, bg="white")
+        img = PhotoImage(file="images/background.png")
+        self.canvas1.create_image(1,1, anchor=NW, image=img)
+        self.canvas1.place(x=-20, y=-20)
+
+
         self.canvas = Canvas()
         self.canvas.config(width=300, height=250, bg="white")
         self.question_text = self.canvas.create_text(
@@ -49,6 +60,9 @@ class QuizInterface:
         false_button_img = PhotoImage(file="images/false.png")
         self.false_button = Button(image=false_button_img, highlightthickness=0, command=self.pressed_false)
         self.false_button.grid(row=2, column=1)
+
+        #kadi
+        Misc.lift(self.canvas1)
 
         self.get_next_question()
 
