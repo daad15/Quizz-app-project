@@ -24,12 +24,12 @@ class QuizInterface:
         # Question number label
         self.question_number = self.quiz.question_number
         self.question_number_label = Label(text=f"Question: {self.question_number}/{len(self.quiz.question_list)}",
-                                           fg="White", bg=THEME_COLOR, highlightthickness=0)
+                                           fg="White", bg=THEME_COLOR, highlightthickness=0,font=('Segoe Script',15))
         self.question_number_label.grid(row=0, column=0)
 
         # Score label
         self.score = self.quiz.score
-        self.score_label = Label(text=f"Score: {self.score}", fg="white", bg=THEME_COLOR, highlightthickness=0)
+        self.score_label = Label(text=f"Score: {self.score}", fg="white", bg=THEME_COLOR, highlightthickness=0,font=("Segoe Script",15))
         self.score_label.grid(row=0, column=1)
 
         # Canvas
