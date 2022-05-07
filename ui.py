@@ -5,7 +5,7 @@ import pygame
 THEME_COLOR = "#13229D"
 RIGHT_ANS_COLOR = "#27ae60"
 WRONG_ANS_COLOR = "#ff6b6b"
-FONT = ("font/Poppins-Bold", 15, "bold")
+FONT = ("Bahnschrift", 17, "bold")
 
 pygame.mixer.init()
 
