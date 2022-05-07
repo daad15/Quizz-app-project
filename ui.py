@@ -4,7 +4,7 @@ from quiz_brain import QuizBrain
 THEME_COLOR = "#13229D"
 RIGHT_ANS_COLOR = "#27ae60"
 WRONG_ANS_COLOR = "#ff6b6b"
-FONT = ("Poppins", 15, "bold")
+FONT = ("font/Poppins-Bold", 15, "bold")
 
 
 class QuizInterface:
