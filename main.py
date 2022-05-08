@@ -2,7 +2,12 @@ from question_model import Question
 from data import question_data
 from quiz_brain import QuizBrain
 from ui import QuizInterface
-
+""""
+*    Title: Quiz source code
+*    Author: Udemy online Bootcamp, Dr.Angela Yu
+*    Date: 2021
+*    Availability: https://www.udemy.com/course/100-days-of-code/
+"""
 question_bank = []
 for question in question_data:
     question_text = question["question"]
